@@ -1,0 +1,373 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="{% if request.COOKIES.dark_mode == 'true' %}dark{% endif %} scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sam Mugabo - Full Stack Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes gradientBG {
+            0% { background-position: 0 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0 50%; }
+        }
+
+        .gradient-animation {
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        .nav-transition {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .rotate-sun {
+            animation: rotateSun 0.5s ease-in-out;
+        }
+
+        @keyframes rotateSun {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(180deg); }
+        }
+
+        .scroll-progress {
+            height: 3px;
+            background: linear-gradient(90deg, #3B82F6 0%, #8B5CF6 100%);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            transition: width 0.3s ease-out;
+        }
+
+        .loading {
+            transition: opacity 0.3s ease;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Nike-inspired navbar border animation */
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: currentColor;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="dark:bg-gray-900 dark:text-gray-100 bg-gray-50">
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress" class="scroll-progress"></div>
+
+    <!-- Nike-inspired Navigation -->
+    <nav id="main-nav" class="bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-sm fixed w-full z-50 nav-transition border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center h-20">
+                <a href="./index.html" class="flex items-center space-x-3 group">
+                    <img class="h-9 w-9 rounded-full object-cover object-center transform transition-all duration-300 group-hover:rotate-12"
+                         src="{% static 'img/logo.png' %}"
+                         alt="Logo">
+                    <span class="text-2xl font-bold text-gray-900 dark:text-white transition-all duration-300 group-hover:text-blue-600 dark:group-hover:text-blue-400">
+                        Sam MUGABO
+                    </span>
+                </a>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <!-- Nike-style navigation links -->
+                    <a href="#about" class="nav-link relative text-gray-900 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-1 py-2 text-sm font-medium transition-colors duration-300">
+                        About
+                    </a>
+                    <a href="#projects" class="nav-link relative text-gray-900 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-1 py-2 text-sm font-medium transition-colors duration-300">
+                        Projects
+                    </a>
+                    <a href="#skills" class="nav-link relative text-gray-900 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-1 py-2 text-sm font-medium transition-colors duration-300">
+                        Skills
+                    </a>
+                    <a href="#contact" class="nav-link relative text-gray-900 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-1 py-2 text-sm font-medium transition-colors duration-300">
+                        Contact
+                    </a>
+                </div>
+
+                <div class="flex items-center space-x-6">
+                    <button id="dark-mode-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 transform hover:scale-110">
+                        <i class="fas fa-moon dark:hidden text-lg text-gray-600"></i>
+                        <i class="fas fa-sun hidden dark:block text-lg text-yellow-400"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 p-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 opacity-0 scale-50 hover:scale-110">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    {% block content %}{% endblock %}
+
+    <!-- Stunning Gradient Footer -->
+    <footer class="relative overflow-hidden bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900 text-white py-16 mt-24">
+        <!-- Floating elements for visual interest -->
+        <div class="absolute -top-20 -left-20 w-40 h-40 rounded-full bg-blue-500/20 filter blur-3xl animate-float"></div>
+        <div class="absolute -bottom-10 -right-10 w-60 h-60 rounded-full bg-purple-500/20 filter blur-3xl animate-float animation-delay-3000"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- About Column with animation -->
+                <div class="space-y-6 animate-fade-in">
+                    <div class="flex items-center space-x-3">
+                        <img class="h-10 w-10 rounded-full object-cover" src="{% static 'img/logo.png' %}" alt="Logo">
+                        <h3 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+                            Sam MUGABO
+                        </h3>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed">
+                        Crafting exceptional digital experiences with clean code and innovative solutions.
+                    </p>
+                    <div class="flex space-x-4">
+                        <span class="px-3 py-1 bg-white/10 rounded-full text-sm">Full-Stack</span>
+                        <span class="px-3 py-1 bg-white/10 rounded-full text-sm">Django</span>
+                        <span class="px-3 py-1 bg-white/10 rounded-full text-sm">React</span>
+                    </div>
+                </div>
+
+                <!-- Quick Links with slide-up animation -->
+                <div class="space-y-6 animate-slide-up">
+                    <h3 class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+                        Quick Links
+                    </h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <a href="#about" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center">
+                            <i class="fas fa-chevron-right text-xs mr-2 text-blue-400"></i> About
+                        </a>
+                        <a href="#projects" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center">
+                            <i class="fas fa-chevron-right text-xs mr-2 text-blue-400"></i> Projects
+                        </a>
+                        <a href="#skills" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center">
+                            <i class="fas fa-chevron-right text-xs mr-2 text-blue-400"></i> Skills
+                        </a>
+                        <a href="#contact" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center">
+                            <i class="fas fa-chevron-right text-xs mr-2 text-blue-400"></i> Contact
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Newsletter & Social with animation -->
+                <div class="space-y-6 animate-fade-in animation-delay-200">
+                    <h3 class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+                        Connect With Me
+                    </h3>
+                    <div class="flex space-x-6">
+                        <a href="https://github.com/mugabosam"
+                           class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-blue-500 transition-all duration-300 transform hover:scale-110 hover:rotate-12"
+                           target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="mailto:popesir112@gmail.com"
+                           class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-purple-500 transition-all duration-300 transform hover:scale-110 hover:rotate-12">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://www.instagram.com/mugab.osam/"
+                           class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-pink-500 transition-all duration-300 transform hover:scale-110 hover:rotate-12">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+
+                    <!-- Newsletter Form -->
+                    <form id="subscribe-form" class="mt-4">
+                        {% csrf_token %}
+                        <div class="flex flex-col space-y-3">
+                            <input type="email" name="email" required
+                                   class="px-4 py-2 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:border-blue-400 placeholder-gray-400 text-white"
+                                   placeholder="Your email">
+                            <button type="submit"
+                                    class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-4 py-2 rounded-lg transition-all duration-300 relative overflow-hidden group">
+                                <span class="relative z-10 submit-text">Get Updates</span>
+                                <span class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                                <span class="loading hidden absolute inset-0 bg-blue-700 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-spinner fa-spin"></i>
+                                </span>
+                            </button>
+                        </div>
+                    </form>
+                    <div id="subscribe-message" class="hidden mt-2 text-sm"></div>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 mt-12 pt-8 text-center">
+                <p class="text-gray-400">
+                    &copy; 2025 Sam MUGABO. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/main.js' %}"></script>
+    <script>
+        // Scroll Progress
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('scroll-progress').style.width = scrolled + '%';
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.remove('opacity-0', 'scale-50');
+                backToTop.classList.add('opacity-100', 'scale-100');
+            } else {
+                backToTop.classList.remove('opacity-100', 'scale-100');
+                backToTop.classList.add('opacity-0', 'scale-50');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Navbar Shadow on Scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-nav');
+            if (window.scrollY > 10) {
+                nav.classList.add('shadow-lg', 'dark:shadow-gray-800/50');
+            } else {
+                nav.classList.remove('shadow-lg', 'dark:shadow-gray-800/50');
+            }
+        });
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Enhanced Dark Mode Toggle
+        document.getElementById('dark-mode-toggle').addEventListener('click', function() {
+            document.documentElement.classList.toggle('dark');
+            const isDarkMode = document.documentElement.classList.contains('dark');
+            document.cookie = `dark_mode=${isDarkMode}; path=/; max-age=31536000`;
+
+            // Add rotation animation
+            const icon = this.querySelector('i');
+            icon.classList.add('rotate-sun');
+            setTimeout(() => icon.classList.remove('rotate-sun'), 500);
+        });
+
+        // Newsletter Form Submission
+        document.getElementById('subscribe-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const form = e.target;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const messageDiv = document.getElementById('subscribe-message');
+            const submitText = submitBtn.querySelector('.submit-text');
+            const loading = submitBtn.querySelector('.loading');
+
+            // Show loading state
+            submitText.classList.add('hidden');
+            loading.classList.remove('hidden');
+            messageDiv.classList.add('hidden');
+
+            try {
+                const formData = new FormData(form);
+                const response = await fetch('/subscribe/', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+                    }
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    messageDiv.textContent = data.message;
+                    messageDiv.classList.remove('hidden', 'text-red-500');
+                    messageDiv.classList.add('text-green-400');
+                    form.reset();
+                } else {
+                    messageDiv.textContent = Object.values(data.errors).join(' ');
+                    messageDiv.classList.remove('hidden', 'text-green-400');
+                    messageDiv.classList.add('text-red-400');
+                }
+            } catch (error) {
+                messageDiv.textContent = 'An error occurred. Please try again.';
+                messageDiv.classList.remove('hidden', 'text-green-400');
+                messageDiv.classList.add('text-red-400');
+            } finally {
+                submitText.classList.remove('hidden');
+                loading.classList.add('hidden');
+                messageDiv.classList.remove('hidden');
+
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    messageDiv.classList.add('hidden');
+                }, 5000);
+            }
+        });
+
+        // Initialize animations when elements come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

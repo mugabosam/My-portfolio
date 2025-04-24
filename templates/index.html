@@ -1,0 +1,764 @@
+{% extends './base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Hero Section with Particle Background -->
+<section class="relative min-h-screen flex items-center justify-center px-4 bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 overflow-hidden">
+
+    <div id="particles-js" class="absolute inset-0"></div>
+
+    <div class="absolute top-1/4 left-1/4 w-40 h-40 bg-blue-500/20 rounded-full filter blur-3xl animate-float"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-60 h-60 bg-purple-500/20 rounded-full filter blur-3xl animate-float animation-delay-3000"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto text-center py-32">
+        <div class="animate-fade-in-up">
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6">
+                Hi, I'm <span class="text-blue-400">Sam MUGABO</span>
+            </h1>
+            <div class="inline-block relative">
+                <span class="relative z-10 text-2xl md:text-3xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400 font-medium">
+                    Full Stack Developer
+                </span>
+                <div class="absolute -bottom-2 left-0 w-full h-2 bg-blue-400/30 rounded-full animate-pulse"></div>
+            </div>
+        </div>
+
+        <div class="mt-16 animate-fade-in-up animation-delay-200">
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#projects"
+                   class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center">
+                    View My Work <i class="fas fa-arrow-down ml-3"></i>
+                </a>
+                <a href="#contact"
+                   class="px-8 py-4 border-2 border-white text-white hover:bg-white/10 rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center">
+                    Contact Me <i class="fas fa-paper-plane ml-3"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="mt-24 animate-bounce">
+            <div class="flex flex-col items-center">
+                <span class="text-sm text-white/70 mb-2">Scroll Down</span>
+                <i class="fas fa-chevron-down text-white/50 text-xl"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-24 px-4 bg-white dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <!-- Profile Image with Floating Animation -->
+            <div class="relative animate-float animation-delay-1000">
+                <div class="relative z-10 w-full max-w-md mx-auto">
+                    <img src="{% static 'img/logo.png' %}"
+                         alt="Sam MUGABO"
+                         class="rounded-2xl shadow-2xl w-full h-auto">
+                </div>
+                <div class="absolute -bottom-6 -left-6 w-full h-full border-4 border-blue-400 rounded-2xl z-0"></div>
+            </div>
+
+            <!-- About Content -->
+            <div class="animate-fade-in-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-8">
+                    About <span class="text-blue-600">Me</span>
+                </h2>
+                <div class="prose dark:prose-invert max-w-none">
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
+                        I'm a passionate Full Stack Developer with over 5 years of experience building web applications.
+                        I specialize in Django, React, and modern JavaScript frameworks.
+                    </p>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
+                        My approach combines technical expertise with creative problem-solving to deliver
+                        high-quality, scalable solutions that drive business growth.
+                    </p>
+                    <div class="flex flex-wrap gap-4 mt-8">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-code text-blue-600 dark:text-blue-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">50+ Projects</h4>
+                                <p class="text-sm text-gray-500">Completed</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-users text-purple-600 dark:text-purple-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">30+ Clients</h4>
+                                <p class="text-sm text-gray-500">Satisfied</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="py-24 px-4 bg-gray-50 dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16 animate-fade-in-up">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                My <span class="text-blue-600">Services</span>
+            </h2>
+            <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                I offer comprehensive web development services tailored to your business needs
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Service 1 -->
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-up">
+                <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-6">
+                    <i class="fas fa-laptop-code text-blue-600 dark:text-blue-400 text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Web Development</h3>
+                <p class="text-gray-600 dark:text-gray-300 mb-6">
+                    Custom web applications built with modern technologies for optimal performance and scalability.
+                </p>
+                <ul class="space-y-2">
+                    <li class="flex items-center">
+                        <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                        <span>Responsive Design</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                        <span>API Integration</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                        <span>Performance Optimization</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-up animation-delay-200">
+                <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mb-6">
+                    <i class="fas fa-mobile-alt text-purple-600 dark:text-purple-400 text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Mobile Solutions</h3>
+                <p class="text-gray-600 dark:text-gray-300 mb-6">
+                    Cross-platform mobile applications that work seamlessly across all devices.
+                </p>
+                <ul class="space-y-2">
+                    <li class="flex items-center">
+                        <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                        <span>React Native</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                        <span>Progressive Web Apps</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                        <span>Offline Capabilities</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-up animation-delay-400">
+                <div class="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mb-6">
+                    <i class="fas fa-server text-green-600 dark:text-green-400 text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">DevOps & Cloud</h3>
+                <p class="text-gray-600 dark:text-gray-300 mb-6">
+                    Deployment, scaling and maintenance of your applications in the cloud.
+                </p>
+                <ul class="space-y-2">
+                    <li class="flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                        <span>AWS & Azure</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                        <span>CI/CD Pipelines</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                        <span>Containerization</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section class="py-24 px-4 bg-white dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16 animate-fade-in-up">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                Technical <span class="text-blue-600">Skills</span>
+            </h2>
+            <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                The tools and technologies I use to bring ideas to life
+            </p>
+        </div>
+
+        <!-- Skill Categories -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Frontend Skills -->
+            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl shadow-lg animate-fade-in-up">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-paint-brush text-blue-600 dark:text-blue-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">Frontend</h3>
+                </div>
+                <div class="space-y-4">
+                    {% for skill in frontend_skills %}
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium">{{ skill.name }}</span>
+                            <span class="text-blue-600">{{ skill.proficiency }}%</span>
+                        </div>
+                        <div class="h-2 bg-gray-200 dark:bg-gray-700 rounded-full">
+                            <div class="h-2 bg-blue-600 rounded-full" style="width: {{ skill.proficiency }}%"></div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Backend Skills -->
+            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl shadow-lg animate-fade-in-up animation-delay-200">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-server text-purple-600 dark:text-purple-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">Backend</h3>
+                </div>
+                <div class="space-y-4">
+                    {% for skill in backend_skills %}
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium">{{ skill.name }}</span>
+                            <span class="text-purple-600">{{ skill.proficiency }}%</span>
+                        </div>
+                        <div class="h-2 bg-gray-200 dark:bg-gray-700 rounded-full">
+                            <div class="h-2 bg-purple-600 rounded-full" style="width: {{ skill.proficiency }}%"></div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Other Skills -->
+            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl shadow-lg animate-fade-in-up animation-delay-400">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-tools text-green-600 dark:text-green-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">Tools & More</h3>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    {% for skill in other_skills %}
+                    <span class="px-3 py-1.5 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded-full text-sm">
+                        {{ skill.name }}
+                    </span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="py-24 px-4 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
+    <!-- Floating decorative elements -->
+    <div class="absolute -top-20 -right-20 w-64 h-64 bg-blue-500/10 rounded-full filter blur-3xl animate-float"></div>
+    <div class="absolute bottom-0 left-0 w-80 h-80 bg-purple-500/10 rounded-full filter blur-3xl animate-float animation-delay-3000"></div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+        <div class="text-center mb-16 animate-fade-in-up">
+            <div class="inline-block relative">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 relative z-10">
+                    Featured <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">Projects</span>
+                </h2>
+                <div class="absolute -bottom-2 left-1/4 w-1/2 h-2 bg-blue-400/30 rounded-full animate-pulse"></div>
+            </div>
+            <p class="text-xl text-gray-600 dark:text-gray-strong-300 max-w-3xl mx-auto pt-16">
+                Some of my recent work that I'm particularly proud of
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-16 pd-0">
+            {% for project in featured_projects %}
+            <div class="group bg-dark-500/50 dark:bg-gray-800 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 animate-fade-in-up">
+
+                <div class="relative overflow-hidden rounded-t-2xl h-64">
+                    <img src="{{ project.image.url }}" alt="{{ project.title }}"
+                         class="w-full h-full object-cover transform transition-all duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+
+                    <!-- Project title with shine effect -->
+                    <div class="absolute bottom-0 left-0 p-6 w-full">
+                        <h3 class="text-2xl font-bold text-white relative inline-block">
+                            <span class="relative z-10">{{ project.title }}</span>
+                            <span class="absolute -bottom-1 left-0 w-full h-1 bg-blue-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
+                        </h3>
+                    </div>
+
+                    <!-- Floating tech badge -->
+                    <div class="absolute top-4 right-4 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm px-3 py-1 rounded-full shadow-sm">
+                        <span class="text-sm font-medium text-gray-800 dark:text-gray-200">{{ project.project_type }}</span>
+                    </div>
+                </div>
+
+                <!-- Project details -->
+                <div class="p-6">
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">{{ project.description }}</p>
+
+                    <!-- Tags with gradient border hover effect -->
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        {% for tag in project.tags.split %}
+                        <span class="relative group/tag">
+                            <span class="bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/50 dark:to-purple-900/50 px-3 py-1 rounded-full text-sm font-medium text-gray-700 dark:text-gray-300 relative z-10">
+                                {{ tag }}
+                            </span>
+                            <span class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 opacity-0 group-hover/tag:opacity-100 -z-10 blur-md group-hover/tag:blur-sm transition-all duration-300"></span>
+                        </span>
+                        {% endfor %}
+                    </div>
+
+                    <!-- Action buttons with animated underline -->
+                    <div class="flex justify-between items-center border-t border-gray-100 dark:border-gray-700 pt-4">
+                        <a href="{{ project.demo_link }}" target="_blank"
+                           class="relative group/demo text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
+                            <span class="flex items-center">
+                                Live Demo <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+                            </span>
+                            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 group-hover/demo:w-full transition-all duration-300"></span>
+                        </a>
+                        <a href="{{ project.github_link }}" target="_blank"
+                           class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors transform hover:scale-110">
+                            <i class="fab fa-github fa-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- View All button with gradient border -->
+        <div class="text-center mt-16 animate-fade-in-up">
+            <a href="#" class="relative inline-block group/all-projects">
+                <span class="relative z-10 inline-block px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl transition-all duration-300 transform group-hover/all-projects:scale-105 shadow-lg">
+                    View All Projects <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover/all-projects:translate-x-1"></i>
+                </span>
+                <span class="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-400 to-purple-500 opacity-0 group-hover/all-projects:opacity-100 -z-10 blur-md group-hover/all-projects:blur-sm transition-all duration-300"></span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="py-24 px-4 bg-white dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16 animate-fade-in-up">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                Client <span class="text-blue-600">Testimonials</span>
+            </h2>
+            <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                What my clients say about working with me
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {% for testimonial in testimonials %}
+            <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-up">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-quote-left text-blue-600 dark:text-blue-400"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold">{{ testimonial.author }}</h4>
+                        <p class="text-sm text-gray-500">{{ testimonial.role }} @ {{ testimonial.company }}</p>
+                    </div>
+                </div>
+                <p class="text-gray-600 dark:text-gray-300 italic mb-6">"{{ testimonial.content }}"</p>
+                <div class="flex">
+                    {% for i in "12345" %}
+                        {% if forloop.counter <= testimonial.rating %}
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                        {% else %}
+                            <i class="far fa-star text-yellow-400 mr-1"></i>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-24 px-4 bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 text-white">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16 animate-fade-in-up">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                Let's <span class="text-blue-300">Connect</span>
+            </h2>
+            <p class="text-xl text-white/80 max-w-3xl mx-auto">
+                Have a project in mind or want to discuss potential opportunities?
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <!-- Contact Form -->
+            <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-lg animate-fade-in-up">
+                <form id="contact-form" class="space-y-6" action="{% url 'contact' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="relative">
+                        <input type="text" name="name" required
+                               class="w-full p-4 bg-white/10 border border-white/20 rounded-lg focus:border-blue-300 focus:ring-2 focus:ring-blue-200/50 transition-all placeholder-white/70"
+                               placeholder="Your Name">
+                    </div>
+
+                    <div class="relative">
+                        <input type="email" name="email" required
+                               class="w-full p-4 bg-white/10 border border-white/20 rounded-lg focus:border-blue-300 focus:ring-2 focus:ring-blue-200/50 transition-all placeholder-white/70"
+                               placeholder="Your Email">
+                    </div>
+
+                    <div class="relative">
+                        <textarea name="message" rows="5" required
+                                  class="w-full p-4 bg-white/10 border border-white/20 rounded-lg focus:border-blue-300 focus:ring-2 focus:ring-blue-200/50 transition-all placeholder-white/70"
+                                  placeholder="Your Message"></textarea>
+                    </div>
+
+                    <button type="submit"
+                            class="w-full bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg">
+                        Send Message <i class="fas fa-paper-plane ml-2"></i>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="animate-fade-in-up animation-delay-200">
+                <div class="space-y-8">
+                    <div class="flex items-start">
+                        <div class="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mr-6">
+                            <i class="fas fa-envelope text-blue-300"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Email Me</h4>
+                            <a href="mailto:popesir112@gmail.com" class="text-white/80 hover:text-white transition-colors">
+                                popesir112@gmail.com
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mr-6">
+                            <i class="fas fa-phone-alt text-blue-300"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Call Me</h4>
+                            <a href="tel:+250 728 670 972" class="text-white/80 hover:text-white transition-colors">
+                                +(250) 728 670 972
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mr-6">
+                            <i class="fas fa-map-marker-alt text-blue-300"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Location</h4>
+                            <p class="text-white/80">Kigali, Rwanda</p>
+                        </div>
+                    </div>
+
+                    <div class="pt-8">
+                        <h4 class="text-xl font-bold mb-4">Follow Me</h4>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/mugabosam" target="_blank"
+                               class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://x.com/Goal_quest2005" target="_blank"
+                               class="w-10 h-10 bg-white/10 hover:bg-blue-500 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.instagram.com/mugab.osam/" target="_blank"
+                               class="w-10 h-10 bg-white/10 hover:bg-red-500 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- JavaScript for Animations -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+    // Initialize particles.js
+    document.addEventListener('DOMContentLoaded', function() {
+        if (document.getElementById('particles-js')) {
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#3B82F6"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.5,
+                        "random": false,
+                        "anim": {
+                            "enable": false,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 40,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#3B82F6",
+                        "opacity": 0.4,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 200,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+        }
+    });
+
+    // Intersection Observer for scroll animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-fade-in-up');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.animate-fade-in-up').forEach((el) => {
+        observer.observe(el);
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Form submission handling
+    document.getElementById('contact-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+
+        // Show loading state
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
+        submitBtn.disabled = true;
+
+        try {
+            const formData = new FormData(form);
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+                }
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                // Show success message
+                submitBtn.innerHTML = '<i class="fas fa-check mr-2"></i> Message Sent!';
+                form.reset();
+
+                // Reset button after 3 seconds
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }, 3000);
+            } else {
+                // Show error message
+                alert('There was an error sending your message. Please try again.');
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+        } catch (error) {
+            alert('There was an error sending your message. Please try again.');
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        }
+    });
+</script>
+
+<style>
+    @keyframes fade-in-up {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+
+    .animate-fade-in-up {
+        opacity: 0;
+        animation: fade-in-up 0.6s ease-out forwards;
+    }
+
+    .animate-float {
+        animation: float 6s ease-in-out infinite;
+    }
+
+    .animation-delay-200 { animation-delay: 200ms; }
+    .animation-delay-400 { animation-delay: 400ms; }
+    .animation-delay-600 { animation-delay: 600ms; }
+    .animation-delay-800 { animation-delay: 800ms; }
+    .animation-delay-1000 { animation-delay: 1000ms; }
+    .animation-delay-1200 { animation-delay: 1200ms; }
+    .animation-delay-1400 { animation-delay: 1400ms; }
+    .animation-delay-1600 { animation-delay: 1600ms; }
+    .animation-delay-1800 { animation-delay: 1800ms; }
+    .animation-delay-2000 { animation-delay: 2000ms; }
+    .animation-delay-3000 { animation-delay: 3000ms; }
+
+    .project-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%);
+        border-radius: 1rem;
+        z-index: 0;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .project-card:hover::before {
+        opacity: 1;
+    }
+
+    .tech-tag {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .tech-tag::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: all 0.6s ease;
+    }
+
+    .tech-tag:hover::after {
+        left: 100%;
+    }
+
+    @keyframes shine {
+        0% { background-position: -200% 0; }
+        100% { background-position: 200% 0; }
+    }
+</style>
+
+{% endblock %}
